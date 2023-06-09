@@ -12,7 +12,16 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      
     },
+    fontFamily: {
+      lora: ['lora'],
+    },
+    // spacing:{
+    //   "300":"30rem",
+    //   "400":"40rem",
+    //   "500":"50rem"
+    // }
   },
   plugins: [],
 }
