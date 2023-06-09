@@ -2,8 +2,12 @@
 import React from 'react'
 import Image from 'next/image'
 
+
+
 const page = () => {
+
   return (
+    
     <div className={`backgroundHome w-full min-h-screen bg-white`}>
      <div className='bg-white w-1/2 min-h-screen flex flex-col'>
       <Image className='w-[10rem] h-[8rem] mt-12 ml-8'  src={require('../../../public/img/logooficial.png')}/>
@@ -20,10 +24,9 @@ const page = () => {
         <button className='border-2 border-slate-600 text-2xl font-lora font-bold py-2 mb-4 mt-16 px-4 rounded-xl shadow-lg hover:transform hover:rotate-360 hover:scale-95 hover:duration-500 hover:bg-slate-600 hover:text-white'>Ingresar</button>
         <h3 className='mt-4 font-lora cursor-pointer'>Olvidastes tu contraseña?</h3>
       </form>
-
-      
      </div>
     </div>
+    
   )
 }
 
