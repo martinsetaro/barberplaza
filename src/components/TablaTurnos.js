@@ -14,7 +14,7 @@ const TablaTurnos = () => {
     const response = await fetch('http://localhost:4001/Turnos');
     const data = await response.json();
     setTurnos(data)
-
+  
    }
    recepcionTurnos();
 
