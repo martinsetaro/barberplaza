@@ -3,21 +3,39 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import BeatLoader from "react-spinners/BeatLoader";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 
 
 const Page = () => {
   
-  const route=useRouter();
+  const route = useRouter();
   const [load,setLoad ] = useState(false);
+  const [ nombre,setNombre ]= useState('');
+  const [ pass , setPass ] = useState('');
+
+
 
   const handlerEnviar = (e)=>{
     e.preventDefault();
-    setLoad(true);
-     setTimeout(()=>{
-      
-      route.push('/dashboard')
-     },4000)
+    if([nombre,pass].includes('')){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algún campo esta vacio!',
+        timer:1500 
+      })
+    }else {
+
+       setLoad(true);
+
+       setTimeout(()=>{
+          route.push('/dashboard')
+       },4000)
+
+    }
+    
    
   }
 
@@ -34,10 +52,12 @@ const Page = () => {
             <form className='flex flex-col w-1/2 h-[15rem] m-auto'>
         <label className='mb-3'>Usuario</label>
         <input 
+        onChange={(e)=> setNombre(e.target.value)}
         className='mb-6 border-2 border-slate-200 p-1 rounded-md'
         type="text" placeholder='Ingrese su usuario'/>
         <label className='mb-3'>Contraseña</label>
         <input 
+        onChange={(e)=> setPass(e.target.value)}
         className='border-2 border-slate-200 p-1 rounded-md'
         type="password" placeholder='Ingrese su contraseña'/>
         <div className='w-1/3 h-[8rem] m-auto flex justify-center mt-8'>
