@@ -104,24 +104,24 @@ if(pass != repetirPass){
         <label className='mb-1 font-lora font-medium'>Elige tu usuario</label>
         <input 
         onChange={(e) => setUsuario(e.target.value)}
-        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa usuario'/>
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" />
         <label className='mb-1 font-lora font-medium'>Elige tu contraseña</label>
         <input 
         onChange={(e) => setPass(e.target.value)}
-        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" placeholder='Ingresa contraseña'/>
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" />
         <label className='mb-1 font-lora font-medium'>Repite contraseña</label>
         <input
         onChange={(e) => setRepetirPass(e.target.value)}
-        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" placeholder='Repite contraseña'/>
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" />
         <label className='mb-1 font-lora font-medium'>Ingresa tu correo electronico</label>
         <input 
         onChange={(e) => setCorreo(e.target.value)}
-        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="email" placeholder='Ingresa email'/>
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="email" />
         <h2 className='text-2xl text-center font-bold mt-6 mb-12'>Registrar datos barberia</h2>
         <label className='mb-1 font-lora font-medium'>Ingresa Telefono</label>
         <input 
         onChange={(e) => setTelefono(e.target.value)}
-        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="number" min={0} placeholder='Ingresa numero de telefono'/>
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="number" min={0} />
         <label className='mb-1 font-lora font-medium'>Ingresa dirección</label>
         <input 
         onChange={(e) => setDireccion(e.target.value)}
@@ -142,7 +142,7 @@ if(pass != repetirPass){
         <label className='mb-1 font-lora font-medium'>Nombre de barberia</label>
         <input 
         onChange={(e) => setNombreBarberia(e.target.value)}
-        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa nombre barberia'/>
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" />
         <label className='mb-2 mt-4'>Seleccione logo de la barberia</label>
         <input type="file" onChange={handleImageUpload}/>
         <label className='mb-1 mt-6 font-lora font-medium'>Ingresa tu codigo de suscripción</label>
