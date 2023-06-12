@@ -3,6 +3,7 @@ import React from 'react'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation';
+import { diaSelectores , horaSelector } from './Selectores';
 
 
 const Reprogramar = ({cliente,setModal}) => {
@@ -61,36 +62,20 @@ const handlerEnviar = () => {
             <label className='mt-3 mb-2'>Fecha</label>
             <select className='border-[.1rem] border-slate-400'>
             <option>Sel fecha</option>
-              <option>01/05</option>
-              <option>02/05</option>
-              <option>03/05</option>
-              <option>04/05</option>
-              <option>05/05</option>
-              <option>06/05</option>
-              <option>07/05</option>
-              <option>08/05</option>
-              <option>09/05</option>
-              <option>10/05</option>
-              <option>11/05</option>
-              <option>12/05</option>
-              <option>13/05</option>
+            {diaSelectores.map( dia => {
+                return(
+                  <option value={dia} key={dia}>{dia}</option>
+                )
+              })}
             </select>
             <label className='mt-3 mb-2'>Hora</label>
             <select className='border-[.1rem] border-slate-400'>
               <option>Sel Hora</option>
-              <option>12:00</option>
-              <option>13:00</option>
-              <option>13:30</option>
-              <option>14:00</option>
-              <option>14:30</option>
-              <option>15:00</option>
-              <option>15:30</option>
-              <option>16:00</option>
-              <option>16:30</option>
-              <option>17:00</option>
-              <option>17:30</option>
-              <option>18:00</option>
-              <option>18:30</option>
+              {horaSelector.map( horas => {
+                return(
+                  <option key={horas} value={horas}>{horas}</option>
+                )
+              })}
             </select>
         </div>
         <button
