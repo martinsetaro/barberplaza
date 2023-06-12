@@ -81,7 +81,7 @@ const handlerLogOut = ()=>{
                </div>
            </div>
         <div className='w-full  h-auto flex justify-around'>
-          <div className="w-1/2 h-[25rem] p-2  flex justify-center items-center">
+          <div className="w-1/3 h-[25rem] p-2  flex justify-center items-center">
             <CalendarComponent/>
           </div>
           <div className=' w-full h-[25rem] overflow-y-scroll p-2'>
