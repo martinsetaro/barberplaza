@@ -1,40 +1,157 @@
 'use client'
-import React from 'react'
+import React, { useState} from 'react'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const page = () => {
+
+
+  const [ usuario , setUsuario ]= useState('');
+  const [ pass , setPass ]= useState('');
+  const [ repetirPass , setRepetirPass ]= useState('');
+  const [ telefono , setTelefono ]= useState('');
+  const [ direccion , setDireccion ]= useState('');
+  const [ localidad , setLocalidad ]= useState('');
+  const [ nombreBarberia , setNombreBarberia ]= useState('');
+  const [ suscripcion , setSuscripcion ]= useState('');
+  const [ imagenBarberia , setImagenBarberia ]= useState('');
+  const [ correo,setCorreo] = useState('')
+
+  const regexp = /^[\w.-]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,6})+$/
+
+
+
+  //Imagen barberia 
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      const base64String = reader.result;
+      setImagenBarberia(base64String);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+
+
+  //cuerpo de tabla
+const objeto = {
+  usuario,
+  pass,
+  repetirPass,
+  telefono,
+  direccion,
+  localidad,
+  nombreBarberia,
+  suscripcion,
+  correo,
+  imagenBarberia
+}
+
+
+
+// Funcion registrar usuario
+
+const handlerRegistrar = () => {
+  
+if([usuario,pass,repetirPass,telefono,direccion,localidad,correo,imagenBarberia,suscripcion].includes('')){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Algún campo esta vacio!',
+    timer:1500 
+  })
+}
+if(!regexp.test(correo)){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Debe ingresar un correo valido!',
+    timer:1500 
+  })
+  return;
+}
+if(pass != repetirPass){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Las contraseñas no coinciden!',
+    timer:1500 
+  })
+  return;
+}
+
+
+
+}
+
+
+
+
+
   return (
     <div className='w-full h-auto bg-slate-300 pt-4 pb-12'>
       <h2 className='text-center font-bold text-3xl'>Registra tu barberia</h2>
       <p className='mt-3 text-center '>Es importante que se verifiquen todos los datos al momento de registrar para evitar inconvenientes</p>
-      <div className='w-1/2 h-auto p-2 flex flex-col m-auto mt-12 bg-white border-[.1rem] border-slate-400 shadow-xl rounded-lg pb-6'>
-        <h2 className='text-xl text-center font-bold mb-12'>Registro de usuario</h2>
+      <div className='w-1/2 h-auto p-4 flex flex-col m-auto mt-12 bg-white border-[.1rem] border-slate-400 shadow-xl rounded-lg pb-6'>
+        <h2 className='text-2xl text-center font-bold mb-12'>Registro de usuario</h2>
 
-        <label className='mb-1 font-semibold'>Elige tu usuario</label>
-        <input className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa usuario'/>
-        <label className='mb-1 font-semibold'>Elige tu contraseña</label>
-        <input className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" placeholder='Ingresa contraseña'/>
-        <label className='mb-1 font-semibold'>Repite contraseña</label>
-        <input className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" placeholder='Repite contraseña'/>
-        <h2 className='text-xl text-center font-bold mt-6 mb-12'>Registrar datos barberia</h2>
-        <label className='mb-1 font-semibold'>Ingresa Telefono</label>
-        <input className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa numero de telfono'/>
-        <label className='mb-1 font-semibold'>Ingresa dirección</label>
-        <input className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa dirección'/>
-        <label className='mb-1 font-semibold'>Selecciona tu localidad</label>
-        <select className='border-[.1rem] border-slate-300 mb-3'>
+        <label className='mb-1 font-lora font-medium'>Elige tu usuario</label>
+        <input 
+        onChange={(e) => setUsuario(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa usuario'/>
+        <label className='mb-1 font-lora font-medium'>Elige tu contraseña</label>
+        <input 
+        onChange={(e) => setPass(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" placeholder='Ingresa contraseña'/>
+        <label className='mb-1 font-lora font-medium'>Repite contraseña</label>
+        <input
+        onChange={(e) => setRepetirPass(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="password" placeholder='Repite contraseña'/>
+        <label className='mb-1 font-lora font-medium'>Ingresa tu correo electronico</label>
+        <input 
+        onChange={(e) => setCorreo(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="email" placeholder='Ingresa email'/>
+        <h2 className='text-2xl text-center font-bold mt-6 mb-12'>Registrar datos barberia</h2>
+        <label className='mb-1 font-lora font-medium'>Ingresa Telefono</label>
+        <input 
+        onChange={(e) => setTelefono(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="number" min={0} placeholder='Ingresa numero de telefono'/>
+        <label className='mb-1 font-lora font-medium'>Ingresa dirección</label>
+        <input 
+        onChange={(e) => setDireccion(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ej: Las Rosas 343'/>
+        <label className='mb-1 font-lora font-medium'>Selecciona tu localidad</label>
+        <select
+        value={localidad} 
+        onChange={(e) => setLocalidad(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3'>
           <option>Seleccionar Localidad</option>
-          <option>Capital</option>
-          <option>Godoy Cruz</option>
-          <option>Las Heras</option>
-          <option>Lujan de Cuyo</option>
-          <option>Guaymallén</option>
-          <option>Maipú</option>
+          <option value="capital">Capital</option>
+          <option value="godoy cruz" >Godoy Cruz</option>
+          <option value="las heras" >Las Heras</option>
+          <option value="lujan de cuyo" >Lujan de Cuyo</option>
+          <option value="guaymallen" >Guaymallén</option>
+          <option value="maipu" >Maipú</option>
         </select>
-        <label className='mb-1 font-semibold'>Nombre de barberia</label>
-        <input className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa nombre barberia'/>
-        <label>Seleccione imagen</label>
-        <input type="file"/>
-        <button className=' bg-blue-600 text-2xl text-white font-lora font-bold py-2 mb-4 mt-24 px-4 rounded-xl shadow-lg  hover:duration-500 hover:bg-gradient-to-r from-blue-400 to-blue-600 hover:border-blue-700 '>Registrar</button>
+        <label className='mb-1 font-lora font-medium'>Nombre de barberia</label>
+        <input 
+        onChange={(e) => setNombreBarberia(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" placeholder='Ingresa nombre barberia'/>
+        <label className='mb-2 mt-4'>Seleccione logo de la barberia</label>
+        <input type="file" onChange={handleImageUpload}/>
+        <label className='mb-1 mt-6 font-lora font-medium'>Ingresa tu codigo de suscripción</label>
+        <input
+        onChange={(e) => setSuscripcion(e.target.value)}
+        className='border-[.1rem] border-slate-300 mb-3 pl-1' type='text' placeholder='Ingresar código'/>
+        <button
+        onClick={handlerRegistrar}
+        className=' bg-blue-600 text-2xl text-white font-lora font-bold py-2 mb-4 mt-24 px-4 rounded-xl shadow-lg  hover:duration-500 hover:bg-gradient-to-r from-blue-400 to-blue-600 hover:border-blue-700 '>Registrar</button>
       </div>
     </div>
   )
