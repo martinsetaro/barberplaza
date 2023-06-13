@@ -13,7 +13,7 @@ const page = () => {
   const [ direccion , setDireccion ]= useState('');
   const [ localidad , setLocalidad ]= useState('');
   const [ nombreBarberia , setNombreBarberia ]= useState('');
-  const [ suscripcion , setSuscripcion ]= useState('');
+  const [ suscripcion , setSuscripcion ]= useState(false);
   const [ imagenBarberia , setImagenBarberia ]= useState('');
   const [ correo,setCorreo] = useState('')
 
@@ -39,33 +39,19 @@ const page = () => {
 
 
 
-  //cuerpo de tabla
-const objeto = {
-  usuario,
-  pass,
-  repetirPass,
-  telefono,
-  direccion,
-  localidad,
-  nombreBarberia,
-  suscripcion,
-  correo,
-  imagenBarberia
-}
-
-
 
 // Funcion registrar usuario
 
 const handlerRegistrar = () => {
   
-if([usuario,pass,repetirPass,telefono,direccion,localidad,correo,imagenBarberia,suscripcion].includes('')){
+if([usuario,pass,repetirPass,telefono,direccion,localidad,correo,imagenBarberia].includes('')){
   Swal.fire({
     icon: 'error',
     title: 'Oops...',
     text: 'Algún campo esta vacio!',
     timer:1500 
   })
+  return;
 }
 if(!regexp.test(correo)){
   Swal.fire({
@@ -86,8 +72,40 @@ if(pass != repetirPass){
   return;
 }
 
+registrarUsuario();
 
 
+}
+
+//registrar datos en base
+
+async function registrarUsuario() {
+  const url = "http://localhost:4001/registroUsuario";
+  
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        usuario: usuario,
+        pass: pass,
+        telefono: telefono,
+        direccion: direccion,
+        localidad: localidad,
+        nombrebarberia: nombreBarberia,
+        suscripcion: suscripcion,
+        correo: correo,
+        imagenbarberia: imagenBarberia
+      })
+    });
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 
@@ -147,7 +165,7 @@ if(pass != repetirPass){
         <input type="file" onChange={handleImageUpload}/>
         <label className='mb-1 mt-6 font-lora font-medium'>Ingresa tu codigo de suscripción</label>
         <input
-        onChange={(e) => setSuscripcion(e.target.value)}
+        
         className='border-[.1rem] border-slate-300 mb-3 pl-1' type='text' placeholder='Ingresar código'/>
         <button
         onClick={handlerRegistrar}
