@@ -36,16 +36,7 @@ handleImageUpload();
         const data = await response.json();
         setImagenBarberia(data.url);
         setImage(null)
-        setTimeout(()=>{
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Registrado correctamente!',
-                showConfirmButton: false,
-                timer: 1500
-              })
-         route.push("/login")
-        },2000)
+       
     };
 
 

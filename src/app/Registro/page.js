@@ -3,9 +3,11 @@ import UploadFoto from '@/utils/UploadFoto'
 import React, { useState} from 'react'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import { useRouter } from 'next/navigation'
 
 const page = () => {
 
+  const route=useRouter();
 
   const [ usuario , setUsuario ]= useState('');
   const [ pass , setPass ]= useState('');
@@ -111,7 +113,18 @@ async function registrarUsuario() {
     });
 
     const data = await response.json();
-    console.log(data);
+    if(data){
+      setTimeout(()=>{
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registrado correctamente!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+     route.push("/Login")
+    },2000)
+    }
   } catch (error) {
     console.log(error);
   }
