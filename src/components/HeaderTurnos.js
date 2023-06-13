@@ -44,7 +44,7 @@ const handlerLogOut = ()=>{
 
 
   return (
-    <div className='w-full h-auto pb-10 bg-slate-300 p-5  font-bold font-lora'>
+    <div className='w-full h-auto pb-10 bg-slate-300 p-5 min-h-screen font-bold font-lora'>
     <h2 className='text-2xl'>Panel de control : Las tijeras</h2>
         <div className='w-full h-auto flex flex-col bg-white mt-6 shadow-md border-2 border-top-slate-600 border-bottom-slater-600'>
            <div className='w-full  h-[6rem] pl-2 shadow-md  flex items-center gap-5'>

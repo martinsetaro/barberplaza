@@ -1,4 +1,5 @@
 'use client'
+import UploadFoto from '@/utils/UploadFoto'
 import React, { useState} from 'react'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -13,38 +14,19 @@ const page = () => {
   const [ direccion , setDireccion ]= useState('');
   const [ localidad , setLocalidad ]= useState('');
   const [ nombreBarberia , setNombreBarberia ]= useState('');
-  const [ suscripcion , setSuscripcion ]= useState(false);
+  const [ suscripcion , setSuscripcion ]= useState('');
+  const [codigoOk,setCodigoOk] = useState(false)
   const [ imagenBarberia , setImagenBarberia ]= useState('');
   const [ correo,setCorreo] = useState('')
 
   const regexp = /^[\w.-]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,6})+$/
 
 
-
-  //Imagen barberia 
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      const base64String = reader.result;
-      setImagenBarberia(base64String);
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
-
-
-
 // Funcion registrar usuario
 
 const handlerRegistrar = () => {
   
-if([usuario,pass,repetirPass,telefono,direccion,localidad,correo,imagenBarberia].includes('')){
+if([usuario,pass,repetirPass,telefono,direccion,localidad,correo,imagenBarberia,suscripcion].includes('')){
   Swal.fire({
     icon: 'error',
     title: 'Oops...',
@@ -77,6 +59,33 @@ registrarUsuario();
 
 }
 
+// funcion verificar cupon
+const handlerVerificarCodigo = async () => {
+   
+  const url = "http://localhost:4001/cupones";
+   await fetch(url,{
+    method:"GET"
+
+   })
+   .then(response => response.json()).then(data => {
+    const verificarCodigo = data.find( item => item.codigo == suscripcion);
+
+    if(verificarCodigo){
+      setCodigoOk(true)
+
+    }else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El codigo no existe!',
+        timer:1500 
+      })
+    }
+
+   }).catch( error => console.log(error))
+}
+
+
 //registrar datos en base
 
 async function registrarUsuario() {
@@ -95,7 +104,7 @@ async function registrarUsuario() {
         direccion: direccion,
         localidad: localidad,
         nombrebarberia: nombreBarberia,
-        suscripcion: suscripcion,
+        suscripcion: codigoOk,
         correo: correo,
         imagenbarberia: imagenBarberia
       })
@@ -161,12 +170,16 @@ async function registrarUsuario() {
         <input 
         onChange={(e) => setNombreBarberia(e.target.value)}
         className='border-[.1rem] border-slate-300 mb-3 pl-1' type="text" />
-        <label className='mb-2 mt-4'>Seleccione logo de la barberia</label>
-        <input type="file" onChange={handleImageUpload}/>
+
+       <UploadFoto setImagenBarberia={setImagenBarberia}/>
+
         <label className='mb-1 mt-6 font-lora font-medium'>Ingresa tu codigo de suscripción</label>
-        <input
-        
+        <input 
+        onChange={(e)=> setSuscripcion(e.target.value)}
         className='border-[.1rem] border-slate-300 mb-3 pl-1' type='text' placeholder='Ingresar código'/>
+        {codigoOk ? <h2 className='bg-green-400 h-[1.5rem] text-white text-center uppercase mt-3'>Codigo autorizado</h2> :<button 
+        onClick={handlerVerificarCodigo}
+        className='bg-blue-400 text-white uppercase mt-3 h-[2rem]'>Verificar codigo</button>}
         <button
         onClick={handlerRegistrar}
         className=' bg-blue-600 text-2xl text-white font-lora font-bold py-2 mb-4 mt-24 px-4 rounded-xl shadow-lg  hover:duration-500 hover:bg-gradient-to-r from-blue-400 to-blue-600 hover:border-blue-700 '>Registrar</button>
