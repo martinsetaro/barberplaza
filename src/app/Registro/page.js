@@ -4,6 +4,7 @@ import React, { useState} from 'react'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const page = () => {
 
@@ -114,14 +115,14 @@ async function registrarUsuario() {
 
     const data = await response.json();
     if(data){
-      setTimeout(()=>{
-        Swal.fire({
+      Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Registrado correctamente!',
             showConfirmButton: false,
             timer: 1500
           })
+      setTimeout(()=>{ 
      route.push("/Login")
     },2000)
     }
@@ -136,6 +137,7 @@ async function registrarUsuario() {
 
   return (
     <div className='w-full h-auto bg-slate-300 pt-4 pb-12'>
+       <Link href="/"><button className='bg-orange-800 text-white font-bold p-3 rounded-md shadow-xl ml-5 hover:bg-gradient-radial from-orange-500 to-orange-700'>Página principal</button></Link>
       <h2 className='text-center font-bold text-3xl'>Registra tu barberia</h2>
       <p className='mt-3 text-center '>Es importante que se verifiquen todos los datos al momento de registrar para evitar inconvenientes</p>
       <div className='w-1/2 h-auto p-4 flex flex-col m-auto mt-12 bg-white border-[.1rem] border-slate-400 shadow-xl rounded-lg pb-6'>
@@ -194,8 +196,9 @@ async function registrarUsuario() {
         onClick={handlerVerificarCodigo}
         className='bg-blue-400 text-white uppercase mt-3 h-[2rem]'>Verificar codigo</button>}
         <button
+        disabled={!codigoOk}
         onClick={handlerRegistrar}
-        className=' bg-blue-600 text-2xl text-white font-lora font-bold py-2 mb-4 mt-24 px-4 rounded-xl shadow-lg  hover:duration-500 hover:bg-gradient-to-r from-blue-400 to-blue-600 hover:border-blue-700 '>Registrar</button>
+        className={`bg-blue-600 text-2xl text-white font-lora font-bold py-2 mb-4 mt-24 px-4 rounded-xl shadow-lg  hover:duration-500 hover:bg-gradient-to-r from-blue-400 to-blue-600 hover:border-blue-700 ${!codigoOk && 'opacity-30'}`} >Registrar</button>
       </div>
     </div>
   )

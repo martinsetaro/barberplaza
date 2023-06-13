@@ -5,6 +5,7 @@ import Image from 'next/image'
 import BeatLoader from "react-spinners/BeatLoader";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import Link from 'next/link'
 
 
 
@@ -47,7 +48,7 @@ const Page = () => {
     
     <div className={`backgroundHome w-full min-h-screen bg-white`}>
      <div className='bg-white w-1/2 min-h-screen flex flex-col'>
-      <Image className='w-[8rem] h-[6rem] mt-6 ml-8' alt="logo" src={require('../../../public/img/logooficial.png')}/>
+      <Link href="/"><Image className='w-[8rem] h-[6rem] mt-6 ml-8' alt="logo" title='Barber Plaza - Inicio' src={require('../../../public/img/logooficial.png')}/> </Link>
       <h2 className='font-lora text-center text-4xl uppercase -mb-28 mt-6'>Bienvenido</h2>
             <form className='flex flex-col w-1/2 h-[15rem] m-auto'>
         <label className='mb-3'>Usuario</label>
