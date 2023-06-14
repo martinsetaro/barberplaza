@@ -8,10 +8,10 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation';
 
 
-const HeaderTurnos = () => {
+const HeaderTurnos = ({datos}) => {
 
 const route = useRouter();
-
+const {usuario, pass, telefono, direccion, localidad, nombrebarberia, suscripcion, correo, imagenbarberia } = datos
 
 
 const handlerLogOut = ()=>{
@@ -45,7 +45,7 @@ const handlerLogOut = ()=>{
 
   return (
     <div className='w-full h-auto pb-10 bg-slate-300 p-5 min-h-screen font-bold font-lora'>
-    <h2 className='text-2xl'>Panel de control : Las tijeras</h2>
+    <h2 className='text-2xl'>Panel de control : {nombrebarberia}</h2>
         <div className='w-full h-auto flex flex-col bg-white mt-6 shadow-md border-2 border-top-slate-600 border-bottom-slater-600'>
            <div className='w-full  h-[6rem] pl-2 shadow-md  flex items-center gap-5'>
                <div className='w-[15rem] flex items-center gap-3'>
@@ -53,7 +53,7 @@ const handlerLogOut = ()=>{
                     <h2 className='uppercase text-white text-2xl'>t</h2>
                 </div>
                 <div>
-                  <h2 className='text-slate-600 font-bold text-xl uppercase'>Las tijeras</h2>
+                  <h2 className='text-slate-600 font-bold text-xl uppercase'>{nombrebarberia}</h2>
                 </div>
                </div>
                <div className='w-[20rem] flex items-center gap-3'>
@@ -62,7 +62,7 @@ const handlerLogOut = ()=>{
                 </div>
                 <div className='w-[10rem]'>
                   <h2 className='text-slate-600 font-bold text-md uppercase'>Bienvenido</h2>
-                  <h2 className='text-slate-600 font-bold text-xl'>Pepe Grillo</h2>
+                  <h2 className='text-slate-600 font-bold text-xl'>{usuario}</h2>
                 </div>
                </div>
                <div className='w-[20rem] flex items-center gap-3'>

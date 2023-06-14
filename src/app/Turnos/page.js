@@ -8,6 +8,8 @@ const page = () => {
   const [ barberias,setBarberias] = useState([])
   const [ newBarberias, setNewBarberias] = useState([])
   const [filter,setFilter] = useState('')
+  const [pedirTurno,setPedirTurno] = useState('')
+  const [ modal , setModal] = useState(false)
 
 //barberias registradas
 
@@ -40,6 +42,14 @@ const handlerFiltrar = ()=> {
 
 }
 
+//realizar un turno 
+
+const handlerPedirTurno = (id) => {
+
+
+
+}
+
 
 
 
@@ -61,7 +71,7 @@ const handlerFiltrar = ()=> {
             <select 
             onChange={(e) => setFilter(e.target.value)}
             className='border-[.1rem] border-slate-400'>
-            <option disabled >Seleccionar localidad</option>
+            <option value="">Seleccionar localidad</option>
           <option value="capital">Capital</option>
           <option value="godoy cruz" >Godoy Cruz</option>
           <option value="las heras" >Las Heras</option>
@@ -87,6 +97,8 @@ const handlerFiltrar = ()=> {
                 <h2 className='mb-2'>Localidad :<span className='text-slate-700 font-semibold uppercase ml-3'>{barberia.localidad}</span> </h2>
                 </div>
                 <button
+                onClick={() => setModal(!modal)}
+                // onClick={() => handlerPedirTurno(id_infobarberias)}
                 className=" bg-blue-600 text-xl text-white font-lora font-bold p-2 h-[4rem] rounded-xl shadow-lg hover:transform hover:rotate-360 hover:scale-95 hover:duration-500 hover:bg-gradient-to-r from-blue-400 to-blue-600 hover:border-blue-700 hover:border-2 mt-12"
                 >Pedir turno</button>
                 
@@ -94,6 +106,7 @@ const handlerFiltrar = ()=> {
             )
           })}
         </div>
+        {modal && <div className='w-[40rem] h-[10rem] fixed top-80 ml-24 bg-red-500'><h2>Pedi tu turno</h2></div>}
         </div>
     </div>
   )

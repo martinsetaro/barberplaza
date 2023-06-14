@@ -15,6 +15,7 @@ const Page = () => {
   const [load,setLoad ] = useState(false);
   const [ nombre,setNombre ]= useState('');
   const [ pass , setPass ] = useState('');
+  
 
 
 
@@ -28,18 +29,73 @@ const Page = () => {
         timer:1500 
       })
     }else {
-
        setLoad(true);
-
-       setTimeout(()=>{
-          route.push('/dashboard')
-       },4000)
-
+       autenticar();
     }
-    
-   
   }
 
+  //Buscar usuario
+
+  async function autenticar (){
+
+    const url = "http://localhost:4001/auth";
+
+           await fetch(url,{
+           method:"POST",
+           headers: {
+              "Content-Type": "application/json"
+           },
+            body:JSON.stringify({
+            username:nombre,
+            password:pass
+           })
+           })
+          .then(response => response.json())
+          .then(data => {
+            if(data.error){
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Usuario no registrado!',
+                timer:1500 
+              })
+              setLoad(false)
+              
+            }else {
+              Swal.fire({
+                icon: 'success',
+                title: 'Hecho',
+                text: 'Sesión iniciada!',
+                timer:1500 
+              })
+              localStorage.setItem('token',JSON.stringify(data))
+              buscarId();
+              setTimeout(()=>{
+
+                route.push("/dashboard")
+              },4000)
+
+            }
+           })
+          .catch(error => console.log(error))
+    }
+
+    //si esta en la base de datos traigo el id
+
+    async function buscarId(){
+
+      const url = "http://localhost:4001/barberias";
+      await fetch(url,{
+        method:'GET'
+      })
+      .then(response => response.json())
+      .then(data => {
+        const id = data.filter( item => item.usuario === nombre && item.pass === pass)
+        const idUsuario = id[0].id_infobarberias
+        localStorage.setItem('idUser',idUsuario)
+      })
+      .catch(err => console.log(err))
+    }
   
    
   

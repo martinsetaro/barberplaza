@@ -173,7 +173,7 @@ async function registrarUsuario() {
         value={localidad} 
         onChange={(e) => setLocalidad(e.target.value)}
         className='border-[.1rem] border-slate-300 mb-3'>
-          <option>Seleccionar Localidad</option>
+          <option value="">Seleccionar Localidad</option>
           <option value="capital">Capital</option>
           <option value="godoy cruz" >Godoy Cruz</option>
           <option value="las heras" >Las Heras</option>
