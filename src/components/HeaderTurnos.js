@@ -27,6 +27,7 @@ const handlerLogOut = ()=>{
     confirmButtonText: 'Sí, salir!'
   }).then((result) => {
     if (result.isConfirmed) {
+      localStorage.clear();
       Swal.fire({
         position: 'center',
         icon: 'success',

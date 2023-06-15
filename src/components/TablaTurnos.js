@@ -14,12 +14,14 @@ const TablaTurnos = () => {
 
 
   useEffect(()=>{
+    const id = localStorage.getItem('idUser')
 
    const recepcionTurnos = async ()=>{
 
-    const response = await fetch('http://localhost:4001/Turnos');
+    const response = await fetch('http://localhost:4001/turnos/guardados');
     const data = await response.json();
-    setTurnos(data)
+    const turnosId = data.filter( item => item.infobarberia_id == id)
+    setTurnos(turnosId)
   
    }
    recepcionTurnos();
