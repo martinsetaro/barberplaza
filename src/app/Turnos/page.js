@@ -107,7 +107,7 @@ setIdUsuario(id)
             )
           })}
         </div>
-        {modal && <div className='w-[40rem] h-[30rem] fixed top-24 ml-24 bg-red-500'><h2>Pedi tu turno</h2><ModalTurnos idUsuario={idUsuario} setModal={setModal}/></div>}
+        {modal && <div className='w-[40rem] h-[30rem] fixed top-24 ml-24'><h2>Pedi tu turno</h2><ModalTurnos idUsuario={idUsuario} setModal={setModal} modal={modal}/></div>}
         </div>
     </div>
   )

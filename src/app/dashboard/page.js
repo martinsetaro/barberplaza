@@ -5,6 +5,7 @@ import HeaderTurnos from '@/components/HeaderTurnos';
 
 
 
+
 const Page = () => {
 
   const [datos , setDatos] = useState({})
@@ -42,7 +43,6 @@ const Page = () => {
       <HeaderTurnos
       datos={datos}
       />
-      
     </div>
   )
 }

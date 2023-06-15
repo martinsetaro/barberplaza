@@ -6,7 +6,7 @@ import CalendarComponent from './CalendarComponent'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation';
-
+import { diaSelectores,horaSelector } from '@/utils/Selectores';
 
 const HeaderTurnos = ({datos}) => {
 
@@ -81,13 +81,39 @@ const handlerLogOut = ()=>{
                 <button className='bg-orange-600 text-white p-1 rounded-md mt-2 hover:bg-gradient-to-r from-orange-500 to-orange-700'>Renovar suscripción</button>
                </div>
            </div>
-        <div className='w-full  h-auto flex justify-around'>
+
+        <div className='w-full  h-auto flex flex-col justify-around'>
+          <div>
+          <div className='w-2/3 m-auto h-[3rem] border-[.1rem] border-slate-500 p-1 flex justify-around gap-3 items-center'>
+            <label className='ml-2'>Filtrar fecha</label>
+            <select className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1'>
+              <option disabled>Sel fecha</option>
+              {diaSelectores.map( dia => {
+                return(
+                  <option value={dia} key={dia}>{dia}</option>
+                )
+              })}
+            </select>
+            <label className='ml-5'>Filtrar Hora</label>
+            <select className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1'>
+              <option disabled >Sel Hora</option>
+              {horaSelector.map( horas => {
+                return(
+                  <option key={horas} value={horas}>{horas}</option>
+                )
+              })}
+            </select>
+            <button className='bg-slate-500 text-white uppercase p-2 rounded-md text-xs'>Filtrar</button>
+          </div>
+          </div>
+          <div className='flex justify-around  h-[35rem]'>
           <div className="w-1/3 h-[25rem] p-2  flex justify-center items-center">
             <CalendarComponent/>
           </div>
-          <div className=' w-full h-[25rem] overflow-y-scroll p-2'>
+          <div className=' w-full h-auto overflow-y-scroll p-2'>
             <TablaTurnos/>
           </div>
+           </div>
         </div>
         </div>
     </div>

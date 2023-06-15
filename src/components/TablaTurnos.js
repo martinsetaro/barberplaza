@@ -41,7 +41,7 @@ const TablaTurnos = () => {
 console.log(cliente)
     
   return (
-    <div className='w-full h-auto p-2'>
+    <div className='w-full h-auto p-2 '>
       
         {modal && 
          <div className='bg-orange-200 absolute w-[20rem] rounded-md shadow-lg h-auto p-2 mt-14'>
@@ -50,32 +50,11 @@ console.log(cliente)
            setModal={setModal}/> 
          </div>
         }
-      
-          <div className='w-full h-[3rem] border-[.1rem] border-slate-500 p-1 flex justify-around gap-3 items-center'>
-            <label className='ml-2'>Filtrar fecha</label>
-            <select className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1'>
-              <option disabled>Sel fecha</option>
-              {diaSelectores.map( dia => {
-                return(
-                  <option value={dia} key={dia}>{dia}</option>
-                )
-              })}
-            </select>
-            <label className='ml-5'>Filtrar Hora</label>
-            <select className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1'>
-              <option disabled >Sel Hora</option>
-              {horaSelector.map( horas => {
-                return(
-                  <option key={horas} value={horas}>{horas}</option>
-                )
-              })}
-            </select>
-            <button className='bg-slate-500 text-white uppercase p-2 rounded-md text-xs'>Filtrar</button>
-          </div>
+    
          {turnos.length == 0 ? (<h2 className='text-center text-2xl mt-12'>No existen turnos</h2>) : (
           turnos.map( turno => {
             return(
-          <div className='w-full h-auto flex flex-col justify-around border-2 border-slate-600 mb-2 mt-2 p-2' key={turno.id}>
+          <div className='w-full h-auto flex flex-col justify-around border-2 border-slate-600 mb-2 mt-12 p-2' key={turno.id}>
             <div className='flex justify-around'>
                  <Image width={30} height={25} src={require('../../public/img/usuario.png')} alt="usuario"/>
                  <h2>Nombre : {turno.nombre}</h2>

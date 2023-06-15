@@ -1,10 +1,10 @@
 'use client'
-import React,{ useState } from 'react'
+import React,{ useState , useEffect } from 'react'
 import { diaSelectores , horaSelector } from '@/utils/Selectores'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const ModalTurnos = ({idUsuario,setModal}) => {
+const ModalTurnos = ({idUsuario,setModal,modal}) => {
 
     const [ nombre,setNombre] = useState('');
     const [ telefono,setTelefono] = useState('');
@@ -12,11 +12,29 @@ const ModalTurnos = ({idUsuario,setModal}) => {
     const [ hora,setHora] = useState('');
     const [ idBarberia, setIdBarberia] = useState(idUsuario)
     
+    const regex = /^[a-zA-Z\s]+$/;
 
 
     //hacer pedido de turno
 
    const handlerPedidoTurno = async () =>{
+
+if([nombre,telefono,fecha,hora].includes('')){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Algún campo esta vacio!',
+    timer:1500 
+  })
+}else if(!regex.test(nombre)){
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'El nombre no puede contener numeros ni caracteres especiales!',
+    timer:1500 
+  })
+}else{
+
 
     Swal.fire({
       title: 'Está por confirmar un turno?',
@@ -32,9 +50,11 @@ const ModalTurnos = ({idUsuario,setModal}) => {
       
       }
     )
-
+}
   }
 
+
+ 
 
 
 async function solicitarTurno(){
@@ -76,21 +96,26 @@ async function solicitarTurno(){
 
 
   return (
-    <div className='flex flex-col'>
-      <h2>MODAL TURNOS</h2>
-      <label>Nombre</label>
+    <div className='flex flex-col bg-white p-3 h-auto border-2 border-slate-500 rounded-md shadow-lg'>
+      <h2 className='text-center fon-bol text-xl text-blue-500 uppercase mb-4'>Registra tu turno</h2>
+      <label className='text-lg mb-2 font-lora'>Nombre
       <input
+      className='border-[.1rem] border-slate-300 w-1/2 ml-3 pl-2 placeholder-slate-300'
       onChange={(e)=> setNombre(e.target.value)}
-      type="text"/>
-      <label>telefono</label>
+      placeholder='Ingrese nombre'
+      type="text"/></label>
+      <label className='text-lg mb-2 font-lora'>telefono
       <input 
+      className='border-[.1rem] border-slate-300 w-1/2 ml-3 pl-2 placeholder-slate-300'
       onChange={(e)=> setTelefono(e.target.value)}
-      type="number"/>
-      <label>id barberia</label>
-      <input 
+      placeholder='Ej: 2613333333'
+      type="number"/></label>
+      <input
+      hidden 
       value={idUsuario}
       onChange={(idUsuario) => setIdBarberia(idUsuario)}
       type="text"/>
+      <div className='flex justify-around mt-5 items-center'>
       <label className='ml-2'>Elegir Fecha</label>
             <select
             onChange={(e)=> setFecha(e.target.value)}
@@ -113,9 +138,13 @@ async function solicitarTurno(){
                 )
               })}
             </select>
+           </div> 
       <button
       onClick={handlerPedidoTurno}
-      className='bg-orange-600 text-white font-bold'>Agendar turno</button>
+      className='bg-orange-600 text-white font-bold mt-12 mb-8 h-[2rem] w-1/2 m-auto uppercase'>Agendar turno</button>
+      <button
+      onClick={()=> setModal(!modal)}
+      className='bg-red-500 text-white font-bold p-1 w-1/3 m-auto'>cerrar</button>
     </div>
   )
 }
