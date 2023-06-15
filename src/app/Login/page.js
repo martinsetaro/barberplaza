@@ -125,7 +125,9 @@ const Page = () => {
         <button 
         onClick={handlerEnviar}
         className='border-2 border-slate-600 text-2xl font-lora font-bold py-2 mb-4 mt-12 px-4 rounded-xl shadow-lg hover:transform hover:rotate-360 hover:scale-95 hover:duration-500 hover:bg-slate-600 hover:text-white'>Ingresar</button>
+        <Link href="/resetPass">
         <h3 className='mt-4 font-lora cursor-pointer hover:text-blue-950 hover:font-bold'>Olvidastes tu contraseña?</h3>
+      </Link>
       </form>
      </div>
     </div>
