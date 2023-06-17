@@ -9,7 +9,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 
 
-const page = () => {
+const Page = () => {
 
     const [ email ,setEmail ]= useState('')
     const [load,setLoad] = useState(false)
@@ -165,4 +165,4 @@ async function revisionOk(){
   )
 }
 
-export default page
+export default Page

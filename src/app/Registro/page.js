@@ -6,7 +6,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const page = () => {
+const Page = () => {
 
   const route=useRouter();
 
@@ -204,4 +204,4 @@ async function registrarUsuario() {
   )
 }
 
-export default page
+export default Page

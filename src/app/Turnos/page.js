@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ModalTurnos from '@/components/ModalTurnos'
 
-const page = () => {
+const Page = () => {
 
   const [ barberias,setBarberias] = useState([])
   const [ newBarberias, setNewBarberias] = useState([])
@@ -113,4 +113,4 @@ setIdUsuario(id)
   )
 }
 
-export default page
+export default Page

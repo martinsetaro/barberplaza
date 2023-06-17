@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 
 
 
-const page = () => {
+const Page = () => {
 
   const route = useRouter()
   const [correoIngresado,setCorreoIngresado] = useState('')
@@ -153,4 +153,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
