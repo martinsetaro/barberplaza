@@ -1,5 +1,5 @@
 'use client'
-import React,{ useState , useEffect } from 'react'
+import React,{ useState } from 'react'
 import { diaSelectores , horaSelector } from '@/utils/Selectores'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -87,39 +87,32 @@ async function solicitarTurno(){
    }
 }
    
-
-   
-
-  
-
-
-
-
   return (
     <div className='flex flex-col bg-white p-3 h-auto border-2 border-slate-500 rounded-md shadow-lg'>
-      <h2 className='text-center fon-bol text-xl text-blue-500 uppercase mb-4'>Registra tu turno</h2>
-      <label className='text-lg mb-2 font-lora'>Nombre
+      <h2 className='text-center fon-bol text-xl text-blue-500 uppercase mb-4  max-[900px]:text-3xl'>Registra tu turno</h2>
+      <label className='text-lg mb-2 font-lora  max-[900px]:text-2xl'>Nombre
       <input
-      className='border-[.1rem] border-slate-300 w-1/2 ml-3 pl-2 placeholder-slate-300'
+      className='border-[.1rem] border-slate-300 w-1/2 ml-3 pl-2 placeholder-slate-300 max-[900px]:w-2/3'
       onChange={(e)=> setNombre(e.target.value)}
       placeholder='Ingrese nombre'
       type="text"/></label>
-      <label className='text-lg mb-2 font-lora'>telefono
+      <label className='text-lg mb-2 font-lora  max-[900px]:text-2xl'>telefono
       <input 
-      className='border-[.1rem] border-slate-300 w-1/2 ml-3 pl-2 placeholder-slate-300'
+      className='border-[.1rem] border-slate-300 w-1/2 ml-3 pl-2 placeholder-slate-300 max-[900px]:w-2/3'
       onChange={(e)=> setTelefono(e.target.value)}
       placeholder='Ej: 2613333333'
+      min={0}
       type="number"/></label>
       <input
       hidden 
       value={idUsuario}
       onChange={(idUsuario) => setIdBarberia(idUsuario)}
       type="text"/>
-      <div className='flex justify-around mt-5 items-center'>
-      <label className='ml-2'>Elegir Fecha</label>
+      <div className='flex justify-around mt-5 items-center  max-[900px]:flex  max-[900px]:flex-col'>
+      <label className='ml-2  max-[900px]:text-2xl  max-[900px]:mb-3'>Elegir Fecha</label>
             <select
             onChange={(e)=> setFecha(e.target.value)}
-            className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1'>
+            className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1 max-[900px]:mb-3 max-[900px]:w-1/2'>
               <option>Sel fecha</option>
               {diaSelectores.map( dia => {
                 return(
@@ -127,10 +120,10 @@ async function solicitarTurno(){
                 )
               })}
             </select>
-            <label className='ml-5'>Elegir Hora</label>
+            <label className=' max-[900px]:text-2xl  max-[900px]:mb-3'>Elegir Hora</label>
             <select 
             onChange={(e)=> setHora(e.target.value)}
-            className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1'>
+            className='w-[8rem] ml-1 border-[.1rem] border-slate-400 p-1 max-[900px]:w-1/2'>
               <option>Sel Hora</option>
               {horaSelector.map( horas => {
                 return(
@@ -141,10 +134,10 @@ async function solicitarTurno(){
            </div> 
       <button
       onClick={handlerPedidoTurno}
-      className='bg-orange-600 text-white font-bold mt-12 mb-8 h-[2rem] w-1/2 m-auto uppercase'>Agendar turno</button>
+      className='bg-orange-600 text-white font-bold mt-12 mb-8 h-[2rem] w-1/2 m-auto uppercase max-[900px]:w-full max-[900px]:h-[4rem] max-[900px]:text-3xl max-[900px]:rounded-xl'>Agendar turno</button>
       <button
       onClick={()=> setModal(!modal)}
-      className='bg-red-500 text-white font-bold p-1 w-1/3 m-auto'>cerrar</button>
+      className='bg-red-500 text-white font-bold p-1 w-1/3 m-auto max-[900px]:h-[4rem] max-[900px]:text-2xl uppercase max-[900px]:rounded-xl'>cerrar</button>
     </div>
   )
 }

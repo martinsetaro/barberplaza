@@ -103,19 +103,19 @@ const Page = () => {
   return (
     
     <div className={`backgroundHome w-full min-h-screen bg-white`}>
-     <div className='bg-white w-1/2 min-h-screen flex flex-col'>
-      <Link href="/"><Image className='w-[8rem] h-[6rem] mt-6 ml-8' alt="logo" title='Barber Plaza - Inicio' src={require('../../../public/img/logooficial.png')}/> </Link>
-      <h2 className='font-lora text-center text-4xl uppercase -mb-28 mt-6'>Bienvenido</h2>
-            <form className='flex flex-col w-1/2 h-[15rem] m-auto'>
+     <div className='bg-white w-1/2 min-h-screen min-[1000px]:flex min-[1000px]:flex-col max-[900px]:w-full'>
+      <Link href="/"><Image className='w-[8rem] h-[6rem] mt-6 ml-8 max-[900px]:m-auto max-[900px]:mt-12' alt="logo" title='Barber Plaza - Inicio' src={require('../../../public/img/logooficial.png')}/> </Link>
+      <h2 className='font-lora text-center text-4xl uppercase -mb-28 mt-6 max-[900px]:text-5xl max-[900px]:mt-12'>Bienvenido</h2>
+            <form className='flex flex-col w-1/2 h-[15rem] m-auto max-[900px]:w-[95%] max-[900px]:mt-40'>
         <label className='mb-3'>Usuario</label>
         <input 
         onChange={(e)=> setNombre(e.target.value)}
-        className='mb-6 border-2 border-slate-200 p-1 rounded-md'
+        className='mb-6 border-2 border-slate-200 p-1 rounded-md max-[900px]:w-full'
         type="text" placeholder='Ingrese su usuario'/>
         <label className='mb-3'>Contraseña</label>
         <input 
         onChange={(e)=> setPass(e.target.value)}
-        className='border-2 border-slate-200 p-1 rounded-md'
+        className='border-2 border-slate-200 p-1 rounded-md max-[900px]:w-full '
         type="password" placeholder='Ingrese su contraseña'/>
         <div className='w-1/3 h-[8rem] m-auto flex justify-center mt-8'>
           {load && <BeatLoader 
@@ -124,9 +124,9 @@ const Page = () => {
         </div>
         <button 
         onClick={handlerEnviar}
-        className='border-2 border-slate-600 text-2xl font-lora font-bold py-2 mb-4 mt-12 px-4 rounded-xl shadow-lg hover:transform hover:rotate-360 hover:scale-95 hover:duration-500 hover:bg-slate-600 hover:text-white'>Ingresar</button>
+        className='border-2 border-slate-600 text-2xl font-lora font-bold py-2 mb-4 mt-12 px-4 rounded-xl shadow-lg hover:transform hover:rotate-360 hover:scale-95 hover:duration-500 hover:bg-slate-600 hover:text-white max-[900px]:h-[5rem] max-[900px]:mb-12'>Ingresar</button>
         <Link href="/resetPass">
-        <h3 className='mt-4 font-lora cursor-pointer hover:text-blue-950 hover:font-bold'>Olvidastes tu contraseña?</h3>
+        <h3 className='mt-4 font-lora cursor-pointer hover:text-blue-950 hover:font-bold max-[900px]:text-2xl max-[900px]:text-center'>Olvidastes tu contraseña?</h3>
       </Link>
       </form>
      </div>
