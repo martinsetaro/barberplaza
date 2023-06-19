@@ -57,13 +57,13 @@ setIdUsuario(id)
 
 
   return (
-    <div className='min-[901px]:w-full bg-gradient-radial from-slate-100 pt-12 to-slate-300 min-h-screen max-[900px]:pt-12 max-[900px]:flex flex-col items-center'>
+    <div className='w-full bg-gradient-radial from-slate-100 pt-12 to-slate-300 min-h-screen pb-24 max-[900px]:pt-12 max-[900px]:flex flex-col items-center max-[900px]:min-h-screen'>
       <Link href="/"><button className='bg-orange-800 text-white font-bold p-3 rounded-md shadow-xl ml-5 hover:bg-gradient-radial from-orange-500 to-orange-700 max-[900px]:w-[15rem] max-[900px]:h-[4rem] max-[900px]:text-2xl'>Página principal</button></Link>
-      <div className='w-full m-auto h-[50rem]'>
+      <div className='w-full m-auto h-auto'>
       <div className='w-full h-auto m-auto p-4 max-[900px]:-mt-60 mb-24'>
-        <h2 className='text-5xl text-center text-blue-500 uppercase font-semibold font-lora max-[900px]:text-6xl'>Solicitar turno</h2>
-        <p className='text-center text-xl max-[900px]:mt-3 max-[900px]:text-2xl'>A continuación podrás elegir la barbería que se encuentre dentro de tu zona.</p>
-        <p className='text-center text-xl max-[900px]:text-2xl'>Desde ahí podrá solicitar un turno o comunicarte con la barbería.</p>
+        <h2 className='text-5xl text-center text-blue-500 uppercase font-semibold font-lora max-[900px]:text-6xl max-[900px]:mt-80'>Solicitar turno</h2>
+        <p className='text-center text-xl max-[900px]:mt-3 max-[900px]:text-5xl'>A continuación podrás elegir la barbería que se encuentre dentro de tu zona.</p>
+        <p className='text-center text-xl max-[900px]:text-5xl'>Desde ahí podrá solicitar un turno o comunicarte con la barbería.</p>
       </div>
         
         <div className='h-auto m-auto'>
@@ -72,7 +72,7 @@ setIdUsuario(id)
             <label className='mr-4 text-xl font-bold text-white max-[900px]:text-5xl mb-3'>Seleccionar localidad</label>
             <select 
             onChange={(e) => setFilter(e.target.value)}
-            className='border-[.1rem] border-slate-400 max-[900px]:w-2/3 max-[900px]:h-[4rem] '>
+            className='border-[.1rem] border-slate-400 max-[900px]:w-2/3 max-[900px]:h-[4rem] max-[900px]:text-2xl '>
             <option value="">Seleccionar localidad</option>
           <option value="capital">Capital</option>
           <option value="godoy cruz" >Godoy Cruz</option>
@@ -85,7 +85,7 @@ setIdUsuario(id)
             onClick={handlerFiltrar}
             className='bg-orange-600 text-white p-2 w-24 rounded-md hover:bg-gradient-to-r from-orange-400 to-orange-500 duration-700 font-bold max-[900px]:w-2/3 max-[900px]:h-[6rem] max-[900px]:text-2xl max-[900px]:mt-2'>Filtrar</button>
           </div>
-          {barberias.length == 0 ? <h2 className='text-2xl text-center font-bold max-[900px]:text-4xl'>Lo siento, actualmente no hay ninguna barbería registrada en tu zona. Sin embargo, ¡próximamente habrá algunas disponibles!</h2> : 
+          {barberias.length == 0 ? <h2 className='text-2xl text-center font-bold max-[900px]:text-7xl'>Lo siento, actualmente no hay ninguna barbería registrada en tu zona. Sin embargo, ¡próximamente habrá algunas disponibles!</h2> : 
           barberias.map( barberia => {
             return(
               <div key={barberia.id_infobarberias} className='w-full h-auto bg-white p-2 flex shadow-lg mb-2 mt-2'>
