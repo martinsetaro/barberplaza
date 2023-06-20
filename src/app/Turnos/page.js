@@ -69,7 +69,7 @@ setIdUsuario(id)
         <div className='h-auto m-auto'>
           <h2 className='text-4xl font-semibold mb-4 font-lora text-center max-[900px]:text-6xl'>Barberias registradas</h2>
           <div className='min-[1000px]:h-[5rem] mt-6 mb-12 border-[.1rem] border-slate-400 min-[1000px]:p-2 min-[1000px]:flex min-[1000px]:justify-around min-[1000px]:items-center w-1/2 m-auto bg-gradient-radial from-slate-500 to-slate-900 rounded-md max-[900px]:w-full p-3  max-[900px]:h-[18rem]  max-[900px]:items-center  max-[900px]:flex  max-[900px]:flex-col'>
-            <label className='mr-4 text-2xl font-bold text-white max-[900px]:text-3xl text-center mb-5'>Seleccionar localidad</label>
+            <label className='text-2xl font-bold text-white max-[900px]:text-3xl text-center max-[900px]:mb-5'>Seleccionar localidad</label>
             <select 
             onChange={(e) => setFilter(e.target.value)}
             className='border-[.1rem] border-slate-400  max-[900px]:h-[4rem]  max-[900px]:mb-10 max-[900px]:text-2xl  max-[900px]:w-full '>

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation'
 import BeatLoader from "react-spinners/BeatLoader";
+import Link from 'next/link'
 
 
 
@@ -78,7 +79,7 @@ try {
 
     
 } catch (error) {
-    console.log(error)
+    console.log("El correo no está registrado")
 }
      
 }
@@ -139,26 +140,27 @@ async function revisionOk(){
 
   return (
     <div className='bg-gradient-to-r from-slate-300 to-slate-500 min-h-screen w-full pt-24 flex flex-col'>
-      <div className='bg-white w-1/2 h-auto p-4 m-auto flex flex-col items-center'>
-        <h2 className='text-xl text-center text-blue-600 font-lora mb-12'>Desde aquí podra hacer reset de su contraseña</h2>
-        <p className='text-center'>Enviaremos un correo electronico si el correo está registrado en nuestra bases de datos.</p>
-        <p className='text-center mb-12'>Dirijasé a su correo y desde allí haga click en el link que le enviaremos para establecer una contraseña nueva.</p>
-       <div className='w-[40rem] h-24 flex gap-12 m-auto items-center'>
-        <label className='font-lora font-semibold'>Ingrese su correo electronico</label>
+      <div className='bg-white w-1/2 h-auto p-4 m-auto flex flex-col items-center max-[900px]:w-full'>
+        <h2 className='text-xl text-center text-blue-600 font-lora mb-12 font-bold uppercase'>Desde aquí podra hacer reset de su contraseña</h2>
+        <p className='text-center font-lora max-[900px]:text-xl'>Verificaremos si el correo está registrado en nuestra bases de datos.</p>
+        <p className='text-center mb-12 font-lora max-[900px]:text-xl'>Revise su correo y desde allí haga click en el link que le enviaremos para establecer una contraseña nueva.</p>
+       <div className='w-[40rem] h-auto flex gap-12 m-auto items-center max-[900px]:flex max-[900px]:flex-col max-[900px]:w-full'>
+        <label className='font-lora font-semibold max-[900px]:text-2xl max-[900px]:mb-0'>Ingrese su correo electronico</label>
         <input
         value={email} 
         onChange={(e) => setEmail(e.target.value)}
         className='border-[.1rem] border-slate-400 p-2 w-[18rem]'
         type="email" placeholder='Ingrese su email'/>
        </div>
-       <div className='w-1/3 h-[5rem] m-auto flex justify-center mt-8'>
+       <div className='w-1/3 h-[3rem] m-auto flex justify-center mt-8'>
           {load && <BeatLoader 
           color='#1d1d1d'
           />}
         </div>
         <button 
         onClick={enviarCorreo}
-        className=' bg-orange-600 text-white font-bold uppercase p-2 rounded-lg shadow-md w-[6rem]'>Enviar</button>
+        className=' bg-orange-600 text-white font-bold uppercase p-2 rounded-lg shadow-md w-[8rem]'>Enviar</button>
+        <Link href="/Login"><button className=' bg-red-600 mt-5 text-white font-bold uppercase p-2 rounded-lg shadow-md w-[8rem]'>Cancelar</button></Link>
      </div>
      
     </div>
