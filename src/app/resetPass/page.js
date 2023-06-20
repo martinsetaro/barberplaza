@@ -145,7 +145,7 @@ async function revisionOk(){
         <p className='text-center font-lora max-[900px]:text-xl'>Verificaremos si el correo está registrado en nuestra bases de datos.</p>
         <p className='text-center mb-12 font-lora max-[900px]:text-xl'>Revise su correo y desde allí haga click en el link que le enviaremos para establecer una contraseña nueva.</p>
        <div className='w-[40rem] h-auto flex gap-12 m-auto items-center max-[900px]:flex max-[900px]:flex-col max-[900px]:w-full'>
-        <label className='font-lora font-semibold max-[900px]:text-2xl max-[900px]:mb-0'>Ingrese su correo electronico</label>
+        <label className='font-lora font-semibold max-[900px]:text-2xl max-[900px]:mb-0 max-[900px]:text-center'>Ingrese su correo electronico</label>
         <input
         value={email} 
         onChange={(e) => setEmail(e.target.value)}
