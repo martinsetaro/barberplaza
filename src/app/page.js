@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default function Home() {
 
@@ -11,6 +12,17 @@ export default function Home() {
 
   return (
     <div className={`backgroundHome w-full min-h-screen max-[900px]:pt-24`} >
+  <div>
+  <!-- Google tag (gtag.js) -->
+<Script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80"></Script>
+<Script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XJQTMDLY80');
+</Script>
+  </div>
       <div className=" min-[901px]:bg-white min-[901px]:bg-opacity-30 w-1/2 ml-0 min-h-screen max-[900px]:w-full flex flex-col items-center justify-center">
 
 
