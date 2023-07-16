@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default function Home() {
 
@@ -10,9 +11,21 @@ export default function Home() {
   
 
   return (
+    
     <div className={`backgroundHome w-full min-h-screen max-[900px]:pt-24 max-[900px]:pb-24`} >
       <div className=" min-[901px]:bg-white min-[901px]:bg-opacity-30 w-1/2 ml-0 min-h-screen max-[900px]:w-full flex flex-col items-center justify-center">
-
+    <>
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-XJQTMDLY80');
+        `}
+      </Script>
+    </>
 
      <Image className='min-[1000px]:w-[18rem] mt-2 max-[900px]:w-[20rem] max-[900px]:h-[15rem]' alt="logo" src={require('../../public/img/logooficial.png')}/>
      <Link href="/Login"><button 
