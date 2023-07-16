@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bradgarropy/next-google-analytics": "^1.0.2",
     "autoprefixer": "10.4.14",
     "cloudinary": "^1.37.1",
     "cloudinary-react": "^1.8.1",
