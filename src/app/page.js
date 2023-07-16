@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
     <Head>
-      <Head>
+      
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80"></script>
         <script dangerouslySetInnerHTML={{
@@ -25,7 +25,7 @@ export default function Home() {
             gtag('config', 'G-XJQTMDLY80');
           `
         }} />
-      </Head>
+     
     </Head>
     
     <div className={`backgroundHome w-full min-h-screen max-[900px]:pt-24 max-[900px]:pb-24`} >
