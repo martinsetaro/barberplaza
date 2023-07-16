@@ -103,7 +103,7 @@ const Page = () => {
   return (
     
     <div className={`backgroundHome w-full min-h-screen bg-white`}>
-     <div className='bg-white w-1/2 min-h-screen min-[1000px]:flex min-[1000px]:flex-col max-[900px]:w-full'>
+     <div className='bg-white w-1/2 min-h-screen  flex flex-col max-[900px]:w-full max-[900px]:h-[50rem]'>
       <Link href="/"><Image className='w-[8rem] h-[6rem] mt-6 ml-8 max-[900px]:m-auto max-[900px]:mt-12' alt="logo" title='Barber Plaza - Inicio' src={require('../../../public/img/logooficial.png')}/> </Link>
       <h2 className='font-lora text-center text-4xl uppercase -mb-28 mt-6 max-[900px]:text-5xl max-[900px]:mt-12'>Bienvenido</h2>
             <form className='flex flex-col w-1/2 h-[15rem] m-auto max-[900px]:w-[95%] max-[900px]:mt-40'>
