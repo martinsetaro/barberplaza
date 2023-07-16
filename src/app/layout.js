@@ -1,5 +1,5 @@
 import './globals.css'
-import GoogleAnalytics from '@bradgarropy/next-google-analytics/dist/types/components/GoogleAnalytics/GoogleAnalytics'
+import GoogleAnalytics from '@bradgarropy/next-google-analytics';
 import Head from 'next/head'
 
 
