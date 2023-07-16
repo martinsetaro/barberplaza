@@ -1,4 +1,5 @@
-import './globals.css'
+import './globals.css';
+import Head from 'next/head';
 
 
 
@@ -8,13 +9,22 @@ export const metadata = {
   icons: {
     icon: '/static/logooficial.png',
   },
-  
 }
 
 export default function RootLayout({ children}) {
   return (
     <html lang="en">
-    
+     <Head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80"></script>
+     <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+        gtag('config', 'G-XJQTMDLY80');
+</script>
+    </Head>
       <body
       suppressHydrationWarning={true} 
       >{children}</body>
