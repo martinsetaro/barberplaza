@@ -6,6 +6,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import Link from 'next/link'
+import Script from 'next/script';
 
 
 
@@ -103,6 +104,18 @@ const Page = () => {
   return (
     
     <div className={`backgroundHome w-full min-h-screen bg-white`}>
+      <>
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-XJQTMDLY80');
+        `}
+      </Script>
+    </>
      <div className='bg-white w-1/2 min-h-screen  flex flex-col max-[900px]:w-full max-[900px]:h-[50rem]'>
       <Link href="/"><Image className='w-[8rem] h-[6rem] mt-6 ml-8 max-[900px]:m-auto max-[900px]:mt-12' alt="logo" title='Barber Plaza - Inicio' src={require('../../../public/img/logooficial.png')}/> </Link>
       <h2 className='font-lora text-center text-4xl uppercase -mb-28 mt-6 max-[900px]:text-5xl max-[900px]:mt-12'>Bienvenido</h2>

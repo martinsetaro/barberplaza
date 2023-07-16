@@ -3,6 +3,7 @@ import React, { useState , useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ModalTurnos from '@/components/ModalTurnos'
+import Script from 'next/script'
 
 const Page = () => {
 
@@ -58,6 +59,18 @@ setIdUsuario(id)
 
   return (
     <div className='w-full bg-gradient-radial from-slate-100 pt-12 to-slate-300 min-h-screen pb-24'>
+      <>
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-XJQTMDLY80');
+        `}
+      </Script>
+    </>
       <Link href="/"><button className='bg-orange-800 text-white font-bold p-3 rounded-md shadow-xl ml-5 hover:bg-gradient-radial from-orange-500 to-orange-700 max-[900px]:w-[15rem] max-[900px]:h-[4rem] max-[900px]:text-2xl'>Página principal</button></Link>
       <div className='w-full m-auto h-auto'>
       <div className='w-full h-auto m-auto p-4 max-[900px]:-mt-60 mb-24'>

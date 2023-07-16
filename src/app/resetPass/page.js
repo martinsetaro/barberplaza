@@ -5,6 +5,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { useRouter } from 'next/navigation'
 import BeatLoader from "react-spinners/BeatLoader";
 import Link from 'next/link'
+import Script from 'next/script'
 
 
 
@@ -140,6 +141,18 @@ async function revisionOk(){
 
   return (
     <div className='bg-gradient-to-r from-slate-300 to-slate-500 min-h-screen w-full pt-24 flex flex-col'>
+      <>
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-XJQTMDLY80');
+        `}
+      </Script>
+    </>
       <div className='bg-white w-1/2 h-auto p-4 m-auto flex flex-col items-center max-[900px]:w-full'>
         <h2 className='text-xl text-center text-blue-600 font-lora mb-12 font-bold uppercase'>Desde aquí podra hacer reset de su contraseña</h2>
         <p className='text-center font-lora max-[900px]:text-xl'>Verificaremos si el correo está registrado en nuestra bases de datos.</p>
