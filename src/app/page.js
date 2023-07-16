@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
+import Head from 'next/head'
 
 export default function Home() {
 
@@ -11,10 +12,25 @@ export default function Home() {
   
 
   return (
+    <>
+    <Head>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XJQTMDLY80');
+          `
+        }} />
+      </Head>
+    </Head>
     
     <div className={`backgroundHome w-full min-h-screen max-[900px]:pt-24 max-[900px]:pb-24`} >
       <div className=" min-[901px]:bg-white min-[901px]:bg-opacity-30 w-1/2 ml-0 min-h-screen max-[900px]:w-full flex flex-col items-center justify-center">
-    <>
+    {/* <>
     <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
       <Script id="google-analytics">
         {`
@@ -25,7 +41,7 @@ export default function Home() {
           gtag('config', 'G-XJQTMDLY80');
         `}
       </Script>
-    </>
+    </> */}
 
      <Image className='min-[1000px]:w-[18rem] mt-2 max-[900px]:w-[20rem] max-[900px]:h-[15rem]' alt="logo" src={require('../../public/img/logooficial.png')}/>
      <Link href="/Login"><button 
@@ -38,5 +54,6 @@ export default function Home() {
      </div>
      
     </div>
+    </>
   )
 }
