@@ -1,5 +1,5 @@
 import './globals.css';
-import Head from 'next/head';
+
 
 
 
@@ -14,8 +14,11 @@ export const metadata = {
 export default function RootLayout({ children}) {
   return (
     <html lang="en">
-     <Head>
-    <!-- Google tag (gtag.js) -->
+    
+      <body
+      suppressHydrationWarning={true} 
+      >{children}
+      <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80"></script>
      <script>
         window.dataLayer = window.dataLayer || [];
@@ -24,10 +27,7 @@ export default function RootLayout({ children}) {
 
         gtag('config', 'G-XJQTMDLY80');
 </script>
-    </Head>
-      <body
-      suppressHydrationWarning={true} 
-      >{children}</body>
+      </body>
     </html>
   )
 }
