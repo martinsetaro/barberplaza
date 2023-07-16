@@ -1,6 +1,6 @@
 import './globals.css'
 import GoogleAnalytics from '@bradgarropy/next-google-analytics';
-import Head from 'next/head'
+
 
 
 export const metadata = {
@@ -17,9 +17,9 @@ export const metadata = {
 export default function RootLayout({ children}) {
   return (
     <html lang="en">
-      <Head>
+      <head>
          <GoogleAnalytics measurementId='G-XJQTMDLY80'/>
-      </Head>
+      </head>
      
       <body
       suppressHydrationWarning={true} 
