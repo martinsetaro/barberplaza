@@ -18,14 +18,14 @@ export default function Home() {
     <div className={`backgroundHome w-full min-h-screen max-[900px]:pt-24 max-[900px]:pb-24`} >
       <div className=" min-[901px]:bg-white min-[901px]:bg-opacity-30 w-1/2 ml-0 min-h-screen max-[900px]:w-full flex flex-col items-center justify-center">
     <>
-    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-NZNB5SEBYN" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'G-XJQTMDLY80');
+          gtag('config', 'G-NZNB5SEBYN');
         `}
       </Script>
     </>
