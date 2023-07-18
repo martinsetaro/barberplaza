@@ -60,14 +60,14 @@ setIdUsuario(id)
   return (
     <div className='w-full bg-gradient-radial from-slate-100 pt-12 to-slate-300 min-h-screen pb-24'>
       <>
-    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-NZNB5SEBYN" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'G-XJQTMDLY80');
+          gtag('config', 'G-NZNB5SEBYN');
         `}
       </Script>
     </>

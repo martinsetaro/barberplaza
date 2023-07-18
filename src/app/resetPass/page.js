@@ -142,14 +142,14 @@ async function revisionOk(){
   return (
     <div className='bg-gradient-to-r from-slate-300 to-slate-500 min-h-screen w-full pt-24 flex flex-col'>
       <>
-    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-NZNB5SEBYN" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'G-XJQTMDLY80');
+          gtag('config', 'G-NZNB5SEBYN');
         `}
       </Script>
     </>

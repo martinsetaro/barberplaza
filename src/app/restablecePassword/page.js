@@ -124,14 +124,14 @@ const Page = () => {
   return (
     <div className='bg-gradient-to-r from-slate-200 to-slate-300 w-full min-h-screen pt-8'>
       <>
-    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XJQTMDLY80" />
+    <Script src="https://www.googletagmanager.com/gtag/js?id=G-NZNB5SEBYN" />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'G-XJQTMDLY80');
+          gtag('config', 'G-NZNB5SEBYN');
         `}
       </Script>
     </>
