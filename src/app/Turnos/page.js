@@ -5,6 +5,10 @@ import Link from 'next/link'
 import ModalTurnos from '@/components/ModalTurnos'
 import Script from 'next/script'
 
+
+
+
+
 const Page = () => {
 
   const [ barberias,setBarberias] = useState([])

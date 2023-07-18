@@ -1,11 +1,10 @@
-
-import './globals.css'
+import '../globals.css'
 
 
 
 
 export const metadata = {
-  title:"Barber Plaza",
+  title:"Registro de Barberia",
   icons: {
     icon: '/static/logooficial.png',
   },

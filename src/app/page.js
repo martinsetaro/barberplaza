@@ -4,18 +4,19 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
-import Head from 'next/head'
+
+
+
+
+
+
 
 export default function Home() {
 
-
-  
-
   return (
-    
-    
-    
+  
     <div className={`backgroundHome w-full min-h-screen max-[900px]:pt-24 max-[900px]:pb-24`} >
+     
       <div className=" min-[901px]:bg-white min-[901px]:bg-opacity-30 w-1/2 ml-0 min-h-screen max-[900px]:w-full flex flex-col items-center justify-center">
     <>
     <Script src="https://www.googletagmanager.com/gtag/js?id=G-NZNB5SEBYN" />
@@ -41,6 +42,6 @@ export default function Home() {
      </div>
      
     </div>
-    
+
   )
 }
